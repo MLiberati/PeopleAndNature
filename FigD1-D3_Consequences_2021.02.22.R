@@ -32,7 +32,7 @@ teams <- c("Urban", "Coastal", "Agriculture") # team names
 
 criteria <- c("Relevant", "Resonant", "Responsive")
 
-initials <- c("MF", "RD", "BW", "CM", "DP", "GA", "SH", "PD", "SaH", "VS", "CC")
+initials <- c("A1", "A2", "A3", "C1", "C2", "C3", "C4", "U1", "U2", "U3", "U4")
 initials_urban <- initials[8:11]
 initials_coastal <- initials[4:7]
 initials_ag <- initials[1:3]
@@ -55,7 +55,8 @@ for(i in 1:length(initials_urban)){
     assign(paste0(initials_urban[i],"_",criteria[j]), df)
     df_urban <- rbind(df_urban, get(paste0(initials_urban[i],"_",criteria[j])))
   }}
-df_urban[df_urban$Individual=="CC" & df_urban$Criteria=="Relevant",]$Score <- NA # Remove Candace's scores for Relevant
+# Remove U4's scores for Relevant because was a recent hire and was still learning about the program 
+df_urban[df_urban$Individual=="U4" & df_urban$Criteria=="Relevant",]$Score <- NA 
 
 # COASTAL
 df_coastal <- data.frame()
